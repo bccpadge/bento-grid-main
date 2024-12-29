@@ -1,0 +1,543 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/static/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/static/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/static/DMSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* !css variables */
+:root {
+  --clr-purple-100: 254 88% 90%;
+  --clr-purple-500: 256 67% 59%;
+  --clr-yellow-100: 31 66% 93%;
+  --clr-yellow-500: 39 100% 71%;
+  --clr-white: 0 0% 100%;
+  --clr-black: 0 0% 7%;
+  --clr-bkg: 0 0% 96%;
+
+  --fs-body: 1.125rem;
+  --fw-medium: 500;
+  --ff-body: "DM Sans", sans-serif;
+}
+
+/* reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  font-size: 100%;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-block-size: 100dvh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* !sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 2px dotted hsl(var(--clr-black));
+  outline-offset: 5px;
+}
+
+/* !general styles */
+body {
+  font-family: var(--ff-body);
+  background-color: hsl(var(--clr-bkg));
+}
+
+ul {
+  list-style: none;
+}
+
+.wrapper {
+  width: min(100% - 2rem, 70rem);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+/* typography styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-medium);
+  line-height: 1.1;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+/* !text colors */
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+.text-purple-500 {
+  color: hsl(var(--clr-purple-500));
+}
+
+.text-yellow-500 {
+  color: hsl(var(--clr-yellow-500));
+}
+
+
+/* !background colors */
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-purple-100 {
+  background-color: hsl(var(--clr-purple-100));
+}
+
+.bg-purple-500 {
+  background-color: hsl(var(--clr-purple-500));
+}
+
+.bg-yellow-100 {
+  background-color: hsl(var(--clr-yellow-100));
+}
+
+.bg-yellow-500 {
+  background-color: hsl(var(--clr-yellow-500));
+}
+
+/* using :is  */
+:is(.card__list-item, .card) {
+  border-radius: 0.75rem;
+}
+
+:is(.posts__image, .grow__image) {
+  margin-inline: auto;
+}
+
+/* !card list styles  */
+.card__list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-areas:
+    "five-stars"
+    "multiple-platforms"
+    "consistent-schedule"
+    "schedule-posts"
+    "grow-followers"
+    "audience-growth"
+    "create-post"
+    "ai-content";
+  height: 100%;
+
+  .card__list-item {
+    height: 100%;
+  }
+}
+
+
+.card__list-item:is(:hover, :focus-within) {
+  box-shadow: 0 0 0 0.25rem;
+}
+
+.card__list-item:nth-child(1) {
+  grid-area: five-stars;
+}
+
+.card__list-item:nth-child(2) {
+  grid-area: multiple-platforms;
+}
+
+.card__list-item:nth-child(3) {
+  grid-area: consistent-schedule;
+}
+
+.card__list-item:nth-child(4) {
+  grid-area: schedule-posts;
+}
+
+.card__list-item:nth-child(5) {
+  grid-area: grow-followers;
+}
+
+.card__list-item:nth-child(6) {
+  grid-area: audience-growth;
+}
+
+.card__list-item:nth-child(7) {
+  grid-area: create-post;
+}
+
+.card__list-item:nth-child(8) {
+  grid-area: ai-content;
+}
+
+.card {
+  position: relative;
+  height: inherit;
+}
+
+.card__link {
+  text-decoration: none;
+  color: currentColor;
+
+  &:focus {
+    outline: none;
+  }
+
+}
+
+.card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* !five stars card */
+.card--five-stars {
+  padding: 2.5rem 2rem;
+  display: grid;
+  place-items: center;
+
+  @media (width >=75rem) {
+    padding: 3.875rem 2rem;
+  }
+}
+
+.five-stars-title {
+  font-size: 3rem;
+  line-height: 2.5rem;
+  text-align: center;
+
+  @media (width >=75rem) {
+    font-size: 3.5rem;
+  }
+}
+
+.stars__image {
+  margin-block: 2rem 0.5rem;
+}
+
+/* !multiple platforms card */
+.card--multiple-platforms {
+  padding: 1rem;
+
+  .multiple-platforms-title {
+    margin-block-start: 1.3125rem;
+  }
+}
+
+.social__list {
+  display: flex;
+  gap: 1rem;
+}
+
+.social__list-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.1);
+  padding: 8px 1rem;
+  border-radius: 100vmax;
+}
+
+.social__info {
+  --clr-gray: 0 0% 50%;
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 0.6875rem;
+    color: hsl(var(--clr-gray));
+  }
+}
+
+.social__link {
+  width: 2.625rem;
+  height: 2.625rem;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+
+  i {
+    font-size: 1.6875rem;
+  }
+}
+
+/* !consistent schedule card */
+.card--consistent-schedule {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+/* !schedule posts card */
+.card--schedule-posts {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.schedule__paragraph {
+  line-height: 1.125rem;
+}
+
+/* !grow followers card */
+.card--grow-followers {
+  padding: 1.5rem 1.5625rem;
+  display: grid;
+  gap: 3.125rem;
+}
+
+.grow-followers-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* !audience growth card */
+.card--audience-growth {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.audience-growth-title {
+  font-size: 2.875rem;
+}
+
+/* !create post card */
+.card--create-post {
+  padding: 2rem 1.75rem;
+  display: grid;
+  gap: 1rem;
+}
+
+
+/* !ai content card */
+.card--ai-content {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.ai-content-title {
+  font-size: 2rem;
+  line-height: 1.75rem;
+}
+
+/* !attribution */
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+
+/* !media queries */
+@media (width >=75rem) {
+  .card__list {
+    gap: 1.5rem;
+    grid-template-rows: 324px 59px 9.75rem 247px;
+    grid-template-columns: 256px 256px 256px 256px;
+    grid-template-areas:
+      "create-post five-stars five-stars schedule-posts"
+      "create-post multiple-platforms consistent-schedule schedule-posts"
+      "ai-content multiple-platforms consistent-schedule schedule-posts"
+      "ai-content audience-growth grow-followers grow-followers";
+  }
+
+  .five-stars-title {
+    font-size: 3.875rem;
+    line-height: 93.5%;
+    letter-spacing: -0.1875rem;
+  }
+
+  .card--grow-followers {
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 0.5rem;
+    padding: 1.4375rem 1.5rem;
+  }
+
+  .grow__image {
+    width: 18.75rem;
+    height: fit-content;
+  }
+
+  .grow-followers-title {
+    text-align: start;
+    max-width: 15ch;
+  }
+
+  .grow__image {
+    width: 100%;
+    height: fit-content;
+  }
+
+  .card--multiple-platforms {
+    padding: 1.5rem;
+  }
+
+  .multiple-platforms-title {
+    font-size: 2rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.075rem;
+  }
+
+
+  .audience-growth-title {
+    font-size: 3.875rem;
+    letter-spacing: -0.1875rem;
+  }
+
+  :is(.card--schedule-posts, .grow-followers-title) {
+    text-align: start;
+  }
+
+  :is(.card--consistent-schedule, .card--schedule-posts, .card--multiple-platforms) {
+    overflow: hidden;
+  }
+
+  :is(.create-post-title, .ai-content-title) {
+    letter-spacing: -0.125rem;
+  }
+
+  .consistent-schedule-title {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+
+  .schedule__image {
+    width: 18rem;
+    height: fit-content;
+  }
+
+  .card--schedule-posts {
+    padding: 3.125rem 2rem;
+  }
+
+  .schedule-posts-title {
+    font-size: 1.6rem;
+    max-width: 10ch;
+  }
+
+  .schedule__paragraph {
+    max-width: 20ch;
+  }
+
+  .posts__image {
+    height: 19.875rem;
+    width: fit-content;
+    max-width: inherit;
+  }
+
+  .card--create-post {
+    padding: 4.875rem 2rem;
+  }
+
+  .create-post-title {
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+  }
+
+  .ai-content-title {
+    font-size: 2.5rem;
+    line-height: 2.25rem;
+  }
+
+  .ai__image {
+    align-self: end;
+  }
+
+}
