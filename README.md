@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor]()
-- Live Site URL: [GitHub Pages]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-bento-grid-using-html-and-css-6N9msfjZm8)
+- Live Site URL: [GitHub Pages](https://bccpadge.github.io/bento-grid-main/)
 
 ## My process
 
